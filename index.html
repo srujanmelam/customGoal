@@ -31,7 +31,7 @@
         <!-- Display the total value if it's valid -->
         <p ng-if="ctrl.value > 0">{{'The money you will get after the months is ' + ctrl.value}}</p>
         <p ng-show="ctrl.pending < 0" style="color: green;">you are ahead with {{(-1)*ctrl.pending}}</p>
-        <p ng-show="ctrl.pending > 0" style="color: orange;">need {{ctrl.pending}} more !!</p>
+        <p ng-show="ctrl.pending > 0" style="color: orange;">needed {{ctrl.pending}} more !!</p>
     
     </div>
 
