@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Growth Calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-controller="myCtrl as ctrl">
+
+    <div class="container">
+        <label for="monthly" style="font-weight: bold;">Enter the money you want to add monthly</label><br/>
+        <input type="number" id="monthly" name="monthly" ng-model="ctrl.monthly_money" />
+        <br/>
+        <label for="monthNumber" style="font-weight: bold;">Enter for how many months you will add money</label><br/>
+        <input type="number" id="monthNumber" name="monthNumber" ng-model="ctrl.number_of_months" />
+        <br/>
+        <label for="saving" style="font-weight: bold;">Enter your current savings</label><br/>
+        <input type="number" id="saving" name="saving" ng-model="ctrl.current_saving" />
+        <br/><br/>
+        <button ng-click="ctrl.process()">Get total</button>
+        <button ng-click="ctrl.reset()">Reset</button>
+
+        <!-- Error message display -->
+        <div ng-if="ctrl.errorMessage" style="color: red; font-weight: bold;">
+            {{ctrl.errorMessage}}
+        </div>
+
+        <!-- Display the total value if it's valid -->
+        <p ng-if="ctrl.value > 0">{{'The money you will get after the months is ' + ctrl.value}}</p>
+        <p ng-show="ctrl.pending < 0" style="color: green;">you are ahead with {{(-1)*ctrl.pending}}</p>
+        <p ng-show="ctrl.pending > 0" style="color: orange;">need {{ctrl.pending}} more !!</p>
+    
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+def process(saving, monthly, number):
+    return int((number * monthly + saving) * 1.1)
+
+def main():
+    monthly_money = int(input("Enter the amount you want to add monthly: "))
+    number_of_months = int(input("Enter the number of months you want to calculate: "))
+    
+    current_saving = int(input("Enter your current saving amount: "))
+    final_money = process(current_saving, monthly_money, number_of_months)
+    print("Your final amount is:", final_money)
+
+if __name__ == "__main__":
+    main()
